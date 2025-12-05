@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Kestrel Sight</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%);
+            color: #e4e4e7;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: #f4f4f5;
+        }
+
+        .sight-badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #f4f4f5;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #71717a;
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(24, 24, 32, 0.8);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-highlight {
+            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(24, 24, 32, 0.8) 100%);
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f4f4f5;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 .icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 .icon svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        p {
+            color: #a1a1aa;
+            margin-bottom: 16px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-box {
+            background: rgba(39, 39, 42, 0.5);
+            border: 1px solid rgba(63, 63, 70, 0.5);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-box-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .contact-box-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .contact-box h3 {
+            color: #f4f4f5;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-box p {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .contact-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-link:hover {
+            color: #60a5fa;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(63, 63, 70, 0.5);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            color: #f4f4f5;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .faq-question .q-icon {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            color: #a1a1aa;
+            padding-left: 36px;
+        }
+
+        .version-badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: ui-monospace, monospace;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            color: #a1a1aa;
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #22c55e;
+            position: absolute;
+            left: 0;
+        }
+
+        .feature-list li.pro::before {
+            content: "★";
+            color: #f59e0b;
+        }
+
+        .note-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 16px;
+        }
+
+        .note-list li {
+            color: #a1a1aa;
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .note-list li.info::before {
+            content: "ℹ";
+            color: #3b82f6;
+            position: absolute;
+            left: 0;
+        }
+
+        .note-list li.warn::before {
+            content: "⚠";
+            color: #f59e0b;
+            position: absolute;
+            left: 0;
+        }
+
+        .note-list li.alert::before {
+            content: "⚠";
+            color: #ef4444;
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(63, 63, 70, 0.3);
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #52525b;
+        }
+
+        footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #60a5fa;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 16px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .logo-text {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <!-- Packet Wing Logo SVG -->
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3b82f6"/>
+                            <stop offset="100%" style="stop-color:#2563eb"/>
+                        </linearGradient>
+                        <linearGradient id="packetBright" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#93c5fd"/>
+                            <stop offset="100%" style="stop-color:#60a5fa"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="4" y="4" width="40" height="40" rx="10" fill="url(#logoGradient)"/>
+                    <rect x="8" y="11" width="7" height="5" rx="1" fill="white" fill-opacity="0.4"/>
+                    <rect x="17" y="10" width="7" height="5" rx="1" fill="white" fill-opacity="0.5"/>
+                    <rect x="26" y="9" width="8" height="5" rx="1" fill="white" fill-opacity="0.6"/>
+                    <rect x="35" y="9" width="5" height="4" rx="1" fill="white" fill-opacity="0.75"/>
+                    <rect x="11" y="17" width="7" height="5" rx="1" fill="white" fill-opacity="0.45"/>
+                    <rect x="20" y="16" width="8" height="5" rx="1" fill="white" fill-opacity="0.55"/>
+                    <rect x="30" y="15" width="8" height="5" rx="1" fill="white" fill-opacity="0.7"/>
+                    <rect x="14" y="24" width="8" height="5" rx="1" fill="white" fill-opacity="0.55"/>
+                    <rect x="24" y="23" width="8" height="6" rx="1" fill="white" fill-opacity="0.7"/>
+                    <rect x="34" y="22" width="7" height="5" rx="1" fill="url(#packetBright)" fill-opacity="0.95"/>
+                    <rect x="18" y="31" width="7" height="5" rx="1" fill="white" fill-opacity="0.55"/>
+                    <rect x="27" y="32" width="8" height="5" rx="1" fill="white" fill-opacity="0.7"/>
+                    <rect x="36" y="31" width="6" height="5" rx="1" fill="url(#packetBright)" fill-opacity="0.9"/>
+                    <rect x="22" y="38" width="6" height="4" rx="1" fill="white" fill-opacity="0.5"/>
+                    <rect x="30" y="39" width="7" height="4" rx="1" fill="white" fill-opacity="0.7"/>
+                </svg>
+                <span class="logo-text">KESTREL</span>
+                <span class="sight-badge">SIGHT</span>
+            </div>
+            <h1>Support</h1>
+            <p class="subtitle">We're here to help you get the most out of Kestrel</p>
+        </header>
+
+        <div class="card card-highlight">
+            <h2>
+                <span class="icon">
+                    <svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </span>
+                Contact Us
+            </h2>
+            <p>Have questions, feedback, or need assistance? We'd love to hear from you.</p>
+            
+            <div class="contact-box">
+                <div class="contact-box-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3>Email Support</h3>
+                <p>General questions, bug reports, and feature requests</p>
+                <a href="mailto:support@quantumkey.net" class="contact-link">support@quantumkey.net</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </span>
+                Frequently Asked Questions
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>What file formats does Kestrel support?</span>
+                </div>
+                <p class="faq-answer">Kestrel supports PCAP (.pcap) and PCAPNG (.pcapng) files. These are the standard formats exported from tools like Wireshark, tcpdump, and other packet capture utilities.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>How do I open a PCAP file in Kestrel?</span>
+                </div>
+                <p class="faq-answer">Tap "Open Capture File" on the start screen and navigate to your PCAP file. You can transfer files to your device via AirDrop, iCloud Drive, Files app, email attachments, or any cloud storage service.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>Is my data secure?</span>
+                </div>
+                <p class="faq-answer">Kestrel runs entirely offline with zero network connections. Your PCAP files are analyzed locally on your device and are never uploaded anywhere. We did not add any trackers, analytics services, or crash reporting tools to Kestrel. While we have designed Kestrel with security in mind and process all data locally on your device, no software application can guarantee absolute security. See our <a href="https://quantumkeytechnologys.github.io/kestrel-privacy-policy/policy.html" class="contact-link">Privacy Policy</a> for details.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>What are the file size limits in Kestrel Sight?</span>
+                </div>
+                <p class="faq-answer">Kestrel Sight handles files based on size: Files up to 1GB get full features with automatic TCP stream reassembly. Files over 1GB have TCP reassembly disabled to preserve memory. Files over 2GB may experience raw search performance degradation. The Sensitive Data Scanner, File Carving, and Media Extraction features are available in Kestrel PRO.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>Why is TCP stream reassembly disabled for my file?</span>
+                </div>
+                <p class="faq-answer">TCP stream reassembly requires significant memory to reconstruct conversations from individual packets. For files over 1GB, this feature is automatically disabled to prevent memory issues and keep the app stable on mobile devices.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>Why is analysis slow on large files?</span>
+                </div>
+                <p class="faq-answer">Larger PCAP files require more processing time and memory. Analysis speed depends on your device capabilities. For best performance on very large captures, ensure your device has sufficient available memory. Files over 2GB may experience performance degradation.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>Can Kestrel capture live network traffic?</span>
+                </div>
+                <p class="faq-answer">No. Kestrel analyzes existing PCAP files only. Due to iOS security restrictions, live packet capture is not possible. You'll need to capture traffic on another device or using dedicated hardware, then transfer the PCAP file to Kestrel for analysis.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>Why don't I see any files or media extracted?</span>
+                </div>
+                <p class="faq-answer">File carving and media extraction only work on unencrypted traffic and are only available in Kestrel PRO. If your capture consists primarily of HTTPS/TLS encrypted connections, the payload data cannot be decoded and no files can be extracted. SSL/TLS certificate import for decrypting captured traffic is on our feature roadmap but not yet available.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-icon">Q</span>
+                    <span>How do I return to the start screen?</span>
+                </div>
+                <p class="faq-answer">Tap the Kestrel logo in the top-left corner of the screen. This will close the current capture and return you to the start screen, freeing up memory.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                </span>
+                Sight Version Features
+            </h2>
+            <ul class="feature-list">
+                <li>Dashboard with traffic overview and statistics</li>
+                <li>Packet browser with filtering and detailed inspection</li>
+                <li>Raw data search in original, unprocessed format</li>
+                <li>Flow reconstruction with bidirectional statistics</li>
+                <li>Host profiling with traffic analysis</li>
+                <li>DNS query extraction and search</li>
+                <li>TCP stream reassembly (auto-runs for files under 1GB)</li>
+                <li>Chain of custody forensic tracking</li>
+                <li>Timeline visualization with filtering</li>
+                <li class="pro">Sensitive Data Scanner (PRO)</li>
+                <li class="pro">File Carving (PRO)</li>
+                <li class="pro">Media Extraction (PRO)</li>
+            </ul>
+
+            <h3 style="color: #f4f4f5; margin-top: 24px; margin-bottom: 12px; font-size: 16px;">File Size Notes</h3>
+            <ul class="note-list">
+                <li class="info">Files up to 1GB: Full features with automatic TCP reassembly</li>
+                <li class="warn">Files over 1GB: TCP reassembly disabled</li>
+                <li class="alert">Files over 2GB: Raw search performance degradation</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </span>
+                App Information
+            </h2>
+            <p><strong style="color: #f4f4f5;">Version:</strong> <span class="version-badge">1.0.0 Sight</span></p>
+            <p><strong style="color: #f4f4f5;">Requires:</strong> iOS 17.0 or later</p>
+            <p><strong style="color: #f4f4f5;">Compatibility:</strong> iPhone and iPad</p>
+            <p><strong style="color: #f4f4f5;">Supported Formats:</strong> PCAP, PCAPNG</p>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </span>
+                Ideal For
+            </h2>
+            <ul class="feature-list">
+                <li>Security professionals analyzing captures in the field</li>
+                <li>Network administrators troubleshooting connectivity</li>
+                <li>Incident responders examining network evidence</li>
+                <li>Penetration testers reviewing assessment data</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>© 2025 Quantum Key Technologies. All rights reserved.</p>
+            <p style="margin-top: 8px;">
+                <a href="https://quantumkeytechnologys.github.io/kestrel-privacy-policy/policy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
